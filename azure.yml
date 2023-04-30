@@ -10,12 +10,18 @@ pool:
   vmImage: windows-latest
 
 steps:
-- task: Gradle@3
-  inputs:
-    gradleWrapperFile: 'gradlew'
-    tasks: 'build'
-    publishJUnitResults: true
-    testResultsFiles: '**/TEST-*.xml'
-    javaHomeOption: 'JDKVersion'
-    sonarQubeRunAnalysis: false
-    spotBugsAnalysis: false
+  - task: Gradle@1
+    inputs:
+      gradleWrapperFile: 'gradlew' # string. Alias: wrapperScript. Required. Gradle Wrapper. Default: gradlew.
+      #options: # string. Options.
+      tasks: 'build' # string. Required. Tasks. Default: build.
+      # Advanced
+      #workingDirectory: # string. Alias: cwd. Working Directory.
+      javaHomeOption: 'JDKVersion' # 'JDKVersion' | 'Path'. Alias: javaHomeSelection. Required. Set JAVA_HOME by. Default: JDKVersion.
+      #jdkVersionOption: 'default' # 'default' | '1.9' | '1.8' | '1.7' | '1.6'. Alias: jdkVersion. Optional. Use when javaHomeSelection = JDKVersion. JDK Version. Default: default.
+      #jdkDirectory: # string. Alias: jdkUserInputPath. Required when javaHomeSelection = Path. JDK Path.
+      #jdkArchitectureOption: 'x64' # 'x86' | 'x64'. Alias: jdkArchitecture. Optional. Use when jdkVersion != default. JDK Architecture. Default: x64.
+      #gradleOptions: '-Xmx1024m' # string. Alias: gradleOpts. Set GRADLE_OPTS. Default: -Xmx1024m.
+      # JUnit Test Results
+      #publishJUnitResults: true # boolean. Publish to TFS/Team Services. Default: true.
+      testResultsFiles: '**/build/test-results/TEST-*.xml'
