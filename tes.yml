@@ -1,0 +1,23 @@
+# Definición de agentes
+pool:
+  vmImage: 'ubuntu-latest'
+
+# Tareas
+steps:
+
+- task: JavaToolInstaller@0
+  inputs:
+      versionSpec: "19"
+      jdkArchitectureOption: x64
+      jdkSourceOption: LocalDirectory
+      jdkFile: "/builds/openjdk-19.0.1_linux-x64_bin.tar.gz"
+      jdkDestinationDirectory: "/builds/binaries/externals"
+      cleanDestinationDirectory: true
+- task: Gradle@2
+  inputs:
+    gradleWrapperFile: 'gradlew'
+    tasks: 'build'
+    publishJUnitResults: true
+    testResultsFiles: '**/TEST-*.xml'
+    javaHomeOption: 'JDKVersion'
+    jdkVersionOption: '1.8'
