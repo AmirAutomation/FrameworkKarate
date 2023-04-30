@@ -1,19 +1,40 @@
-# Gradle
-# Build your Java project and run tests with Gradle using a Gradle wrapper script.
-# Add steps that analyze code, save build artifacts, deploy, and more:
-# https://docs.microsoft.com/azure/devops/pipelines/languages/java
+#trigger:
 
-trigger:
-- main
+#- develop
 
-pool:
-  vmImage: windows-latest
+pool: "DevOps"
+
+#- master
 
 steps:
-  - task: Gradle@1
+  - task: Gradle@2
+
     inputs:
+
+      workingDirectory: ''
+
       gradleWrapperFile: 'gradlew'
-      tasks: 'build'
-      javaHomeOption: 'JDKVersion'
-      jdkVersionOption: '1.19'
-      testResultsFiles: '**/build/test-results/TEST-*.xml'
+
+      publishJUnitResults: true
+
+      testResultsFiles: '**/TEST-*.xml'
+
+      javaHomeOption: 'Path'
+
+      jdkDirectory: '/opt/jdk-19.0.1'
+
+      gradleOptions: '-Xmx3072m'
+
+      sonarQubeRunAnalysis: false
+
+      spotBugsAnalysis: false
+
+      tasks: 'clean test'
+
+  - task: PublishBuildArtifacts@1
+
+    inputs:
+
+      pathToPublish: target/site/serenity
+
+      artifactName: HtmlReport
