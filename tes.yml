@@ -1,14 +1,16 @@
 # Definición de agentes
 pool:
-  vmImage: 'ubuntu-latest'
+  vmImage: 'ubuntu-22.04'
 
 # Tareas
 steps:
 
+
 - task: JavaToolInstaller@0
   inputs:
-   versionSpec: '19'
-   jdkArchitectureOption: 'x64'
+    versionSpec: '8' # string. Required. JDK version. Default: 8.
+    jdkArchitectureOption: 'x64' # 'x64' | 'x86'. Required. JDK architecture.
+    jdkSourceOption: 'PreInstalled'
 
 - task: Gradle@2
   inputs:
