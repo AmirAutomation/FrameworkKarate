@@ -15,7 +15,7 @@ steps:
       gradleWrapperFile: 'gradlew'
       tasks: 'build'
       javaHomeOption: 'JDKVersion'
-      jdkVersionOption: '1.9' 
+      jdkVersionOption: 'default' 
       #jdkVersionOption: 'default' # 'default' | '1.9' | '1.8' | '1.7' | '1.6'. Alias: jdkVersion. Optional. Use when javaHomeSelection = JDKVersion. JDK Version. Default: default.
       #publishJUnitResults: true # boolean. Publish to TFS/Team Services. Default: true.
       testResultsFiles: '**/build/test-results/TEST-*.xml'
