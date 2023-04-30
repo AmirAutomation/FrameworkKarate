@@ -5,12 +5,6 @@ pool:
 # Tareas
 steps:
 
-
-- task: UseJavaVersion@1
-  inputs:
-    versionSpec: '8'
-    architecture: 'x64'
-
 - task: Gradle@2
   inputs:
     gradleWrapperFile: 'gradlew'
