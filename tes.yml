@@ -5,15 +5,6 @@ pool:
 # Tareas
 steps:
 
-
-- task: JavaToolInstaller@0
-  inputs:
-    versionSpec: "19"
-    jdkArchitectureOption: x64
-    jdkSourceOption: LocalDirectory
-    jdkFile: "/builds/openjdk-19.0.1_linux-x64_bin.tar.gz"
-    jdkDestinationDirectory: "/builds/binaries/externals"
-
 - task: Gradle@2
   inputs:
     gradleWrapperFile: 'gradlew'
