@@ -5,17 +5,8 @@ pool:
 # Tareas
 steps:
 
-- task: JavaToolInstaller@0
+- task: Gradle@3
+  displayName: 'gradlew build'
   inputs:
-    versionSpec: '8' # string. Required. JDK version. Default: 8.
-    jdkArchitectureOption: 'x64' # 'x64' | 'x86'. Required. JDK architecture.
-    jdkSourceOption: 'PreInstalled'
-
-- task: Gradle@2
-  inputs:
-    gradleWrapperFile: 'gradlew'
     tasks: 'build'
-    publishJUnitResults: true
-    testResultsFiles: '**/TEST-*.xml'
-    javaHomeOption: 'JDKVersion'
-    jdkVersionOption: '1.8'
+    jdkVersionOption: 1.17
