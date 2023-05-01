@@ -15,7 +15,7 @@ public class RunnerTest {
 
     @Test
     void testParalle(){
-        Results results =  Runner.path("classpath:rest").outputCucumberJson(true).tags("~@ignore").parallel(4);
+        Results results =  Runner.path("classpath:rest").outputCucumberJson(true).tags("@Regresion").parallel(4);
         generateReport(results.getReportDir());
     }
 

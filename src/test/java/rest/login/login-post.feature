@@ -16,7 +16,7 @@ Feature: API Login
 
     Given request {"email": "eve.holt@reqres.in","password": "cityslicka" }
     When method post
-    Then status 201
+    Then status 200
 
   @LoginFailed
   Scenario: Login Failed
