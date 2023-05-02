@@ -9,7 +9,7 @@ Feature: API Login
 
     * def loginFailed = { "email": "automation@test", "password": "leader" }
 
-  # Puedo crear variables locales para cada scenario o en el bacground para todos los casos
+  # Puedo crear variables locales para cada scenario o en el background para todos los casos
 
   @LoginSucessful
   Scenario: Login Sucessful
