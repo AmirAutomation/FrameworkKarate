@@ -8,5 +8,5 @@ steps:
 - task: Gradle@3
   displayName: 'gradlew build'
   inputs:
-    tasks: ':test "rest.KarateRun"'
+    tasks: 'test'
     jdkVersionOption: 1.17
