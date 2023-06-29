@@ -12,7 +12,7 @@ import java.util.Collection;
 import java.util.List;
 
 
-public class RunnerTest {
+public class  RunnerTest {
 
     @Test
     void testParalle(){
